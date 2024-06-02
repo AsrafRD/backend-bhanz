@@ -21,6 +21,19 @@ if (config.use_env_variable) {
   );
 }
 
+// Function to test database connection
+const testConnection = async () => {
+  try {
+    await sequelize.authenticate();
+    console.log('Connection has been established successfully.');
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
+  }
+};
+
+// Call the testConnection function
+testConnection();
+
 fs.readdirSync(__dirname)
   .filter((file) => {
     return (
